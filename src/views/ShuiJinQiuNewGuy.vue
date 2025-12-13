@@ -62,7 +62,7 @@ const posts = [
     replies: [
       { author: '路仁', content: '楼主在编故事吗？' },
       { author: '流眼泪的小男孩', content: '前两天才买的水晶球，这就要被劝退了……' },
-      { author: '彼岸之草', content: '听着有点着啊，好可怕……' },
+      { author: '彼岸之草', content: '听着有点真啊，好可怕……' },
       { author: '会飞的雨', content: '不是着你们都信？一听就是假的。' },
       { author: '蛋挞大王', content: '如果遇到了怎么解决？' },
       { author: '球球', content: '回复【蛋挞大王】：帖子不方便，在"树洞悄悄话"聊，我的账号是qiuqiu123' }

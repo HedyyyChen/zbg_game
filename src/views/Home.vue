@@ -34,6 +34,11 @@ export default {
 
 <style scoped>
 .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   max-width: 600px;
   width: 90%;
   text-align: center;
@@ -45,8 +50,12 @@ export default {
               inset 0 0 0 1px rgba(100, 80, 180, 0.3);
   border: 1px solid rgba(100, 80, 200, 0.2);
   animation: fadeIn 0.8s ease-out;
+
+  /* ⚠️ 关键：不要设置 min-height，让内容自然撑开 */
+  /* 容器高度由内容决定，超出部分由 body 滚动 */
 }
 
+/* 动画保持不变 */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -158,18 +167,21 @@ h1 {
 </style>
 
 <style>
-body, #app {
+body {
   margin: 0;
   padding: 0;
-  height: 100vh;
   width: 100%;
-  overflow: hidden;
+  height: 100vh; /* 固定为视口高度 */
   font-family: 'Noto Sans SC', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #2c1e5d, #4b2a7c, #6a3a9c);
   color: white;
   line-height: 1.6;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: linear-gradient(135deg, #2c1e5d, #4b2a7c, #6a3a9c);
+  overflow-y: auto; /* ✅ 允许滚动 */
+  position: relative;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
 }
 </style>
