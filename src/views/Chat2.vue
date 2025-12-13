@@ -6,6 +6,7 @@
         <div id="chatTab" :class="['tab-content', { active: activeTab === 'chatTab' }]">
           <div id="contactList" :class="['sub-view', { active: currentView === 'contactList' }]">
             <div class="header">
+              <button class="back-to-phone-btn" @click="goBackToPhone">←</button>
               <h2>聊天</h2>
             </div>
             <div class="contact-list">
@@ -70,10 +71,77 @@
           </div>
         </div>
 
-        <!-- 说说 tab（空） -->
+        <!-- 说说 tab -->
         <div id="shuoshuoTab" :class="['tab-content', { active: activeTab === 'shuoshuoTab' }]">
           <div class="shuoshuo-list">
-            <!-- 保持空 -->
+            <div class="shuoshuo-item">
+              <div class="shuoshuo-header">
+                <div class="avatar">🥟</div>
+                <div class="user-info">
+                  <div class="name">爱睡觉的水饺</div>
+                  <div class="time">08/25 20:00</div>
+                </div>
+              </div>
+              <div class="shuoshuo-content">
+                祝我生日快乐！！！
+              </div>
+              <div class="shuoshuo-stats">
+                <span>👍 <b>{{ Math.floor(Math.random() * 30) + 10 }}</b></span>
+                <span>💬 <b>{{ Math.floor(Math.random() * 15) + 5 }}</b></span>
+                <span>🔁 <b>{{ Math.floor(Math.random() * 5) }}</b></span>
+              </div>
+            </div>
+            <div class="shuoshuo-item">
+              <div class="shuoshuo-header">
+                <div class="avatar">🥟</div>
+                <div class="user-info">
+                  <div class="name">爱睡觉的水饺</div>
+                  <div class="time">10/10 19:23</div>
+                </div>
+              </div>
+              <div class="shuoshuo-content">
+                游戏玩腻了，有没有好看的综艺推荐啊，电视剧电影也可，不需要动脑子的最好了。
+              </div>
+              <div class="shuoshuo-stats">
+                <span>👍 <b>{{ Math.floor(Math.random() * 30) + 10 }}</b></span>
+                <span>💬 <b>{{ Math.floor(Math.random() * 15) + 5 }}</b></span>
+                <span>🔁 <b>{{ Math.floor(Math.random() * 5) }}</b></span>
+              </div>
+            </div>
+            <div class="shuoshuo-item">
+              <div class="shuoshuo-header">
+                <div class="avatar">🥟</div>
+                <div class="user-info">
+                  <div class="name">爱睡觉的水饺</div>
+                  <div class="time">11/18 09:00</div>
+                </div>
+              </div>
+              <div class="shuoshuo-content">
+                今天上班迟到被老板当场抓住了啊啊啊！人怎么可以倒霉到这种程度！
+              </div>
+              <div class="shuoshuo-stats">
+                <span>👍 <b>{{ Math.floor(Math.random() * 30) + 10 }}</b></span>
+                <span>💬 <b>{{ Math.floor(Math.random() * 15) + 5 }}</b></span>
+                <span>🔁 <b>{{ Math.floor(Math.random() * 5) }}</b></span>
+              </div>
+            </div>
+            <div class="shuoshuo-item">
+              <div class="shuoshuo-header">
+                <div class="avatar">🥟</div>
+                <div class="user-info">
+                  <div class="name">爱睡觉的水饺</div>
+                  <div class="time">11/21 10:00</div>
+                </div>
+              </div>
+              <div class="shuoshuo-content">
+                时来运转
+              </div>
+              <div class="shuoshuo-stats">
+                <span>👍 <b>{{ Math.floor(Math.random() * 30) + 10 }}</b></span>
+                <span>💬 <b>{{ Math.floor(Math.random() * 15) + 5 }}</b></span>
+                <span>🔁 <b>{{ Math.floor(Math.random() * 5) }}</b></span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -141,7 +209,7 @@ const getChatLogs = (mimatuImageUrl) => ({
       <div class="bubble">这还挺有意思的，我把答案设成电子邮箱的密码了。</div>
     </div>
 
-    <div class="time-divider">11/25 18:21</div>
+    <div class="time-divider">11/19 18:21</div>
     <div class="message sent">
       <div class="bubble">最近感觉好倒霉……</div>
     </div>
@@ -152,7 +220,7 @@ const getChatLogs = (mimatuImageUrl) => ({
       <div class="bubble">哼，你个游戏脑袋，跟你也说不明白。</div>
     </div>
 
-    <div class="time-divider">11/28 20:00</div>
+    <div class="time-divider">11/29 20:00</div>
     <div class="message received">
       <div class="bubble">最近怎么样？我看你都没上号。</div>
     </div>
@@ -166,12 +234,12 @@ const getChatLogs = (mimatuImageUrl) => ({
       <div class="bubble">……谢谢。</div>
     </div>
 
-    <div class="time-divider">11/30 19:45</div>
+    <div class="time-divider">12/02 19:45</div>
     <div class="message received">
       <div class="bubble">身体怎么样了？</div>
     </div>
 
-    <div class="time-divider">12/1 20:01</div>
+    <div class="time-divider">12/03 20:01</div>
     <div class="message received">
       <div class="bubble">你还好吗？</div>
     </div>
@@ -206,7 +274,7 @@ const getChatLogs = (mimatuImageUrl) => ({
 
     <div class="time-divider">11/21 21:00</div>
     <div class="message sent">
-      <div class="bubble">哇！那家占卜馆真的很厉害，帮我算出了最近的运势，还有解决办法，站着做运气果然变好了！</div>
+      <div class="bubble">哇！那家占卜馆真的很厉害，帮我算出了最近的运势，还有解决办法，照着做运气果然变好了！</div>
     </div>
     <div class="message received">
       <div class="bubble">我也是听一个老同学说的，没想到真的有用，能帮到你就好。</div>
@@ -382,6 +450,9 @@ export default {
     goBackToContacts() {
       this.currentView = 'contactList'
     },
+    goBackToPhone() {
+      this.$router.push('/myphone')
+    },
     logout() {
       if (confirm('退出【爱睡觉的水饺】账号？')) {
         this.$router.push('/chat')
@@ -429,6 +500,23 @@ export default {
   align-items: center;
   padding: 0 15px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.back-to-phone-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background 0.2s;
+}
+
+.back-to-phone-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .header h2 {
@@ -621,6 +709,58 @@ export default {
   padding: 15px;
   height: 100%;
   overflow-y: auto;
+}
+
+.shuoshuo-item {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.shuoshuo-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.shuoshuo-header .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+.user-info .name {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.user-info .time {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.shuoshuo-content {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  word-break: break-word;
+}
+
+.shuoshuo-stats {
+  display: flex;
+  gap: 20px;
+  font-size: 0.9rem;
+  color: #666;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
 }
 
 /* 时间分隔线样式已移至 TimeDivider 组件 */

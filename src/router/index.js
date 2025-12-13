@@ -26,6 +26,91 @@ const routes = [
     path: '/chat3',
     name: 'Chat3',
     component: () => import('../views/Chat3.vue')
+  },
+  {
+    path: '/otherchat',
+    name: 'OtherChat',
+    component: () => import('../views/OtherChat.vue')
+  },
+  {
+    path: '/searchplace',
+    name: 'SearchPlace',
+    component: () => import('../views/SearchPlace.vue')
+  },
+  {
+    path: '/emailplace',
+    name: 'EmailPlace',
+    component: () => import('../views/EmailPlace.vue')
+  },
+  {
+    path: '/jiankong',
+    name: 'JianKong',
+    component: () => import('../views/JianKong.vue')
+  },
+  {
+    path: '/shuijinqiuzhanbuguan',
+    name: 'ShuiJinQiuZhanBuGuan',
+    component: () => import('../views/ShuiJinQiuZhanBuGuan.vue')
+  },
+  {
+    path: '/shuijinqiuzhuyishixiang',
+    name: 'ShuiJinQiuZhuYiShiXiang',
+    component: () => import('../views/ShuiJinQiuZhuYiShiXiang.vue')
+  },
+  {
+    path: '/chenlinlin',
+    name: 'ChenLinLin',
+    component: () => import('../views/ChenLinLin.vue')
+  },
+  {
+    path: '/shuijinqiunewguy',
+    name: 'ShuiJinQiuNewGuy',
+    component: () => import('../views/ShuiJinQiuNewGuy.vue')
+  },
+  {
+    path: '/shudongchat',
+    name: 'ShuDongChat',
+    component: () => import('../views/ShuDongChat.vue')
+  },
+  {
+    path: '/yuangonglogin',
+    name: 'YuanGongLogin',
+    component: () => import('../views/YuanGongLogin.vue')
+  },
+  {
+    path: '/iptransform',
+    name: 'IpTransform',
+    component: () => import('../views/IpTransform.vue')
+  },
+  {
+    path: '/ultimate',
+    name: 'Ultimate',
+    component: () => import('../views/Ultimate.vue')
+  },
+  {
+    path: '/hidepage',
+    name: 'HidePage',
+    component: () => import('../views/HidePage.vue')
+  },
+  {
+    path: '/mubiaojindu',
+    name: 'MuBiaoJinDu',
+    component: () => import('../views/MuBiaoJinDu.vue')
+  },
+  {
+    path: '/findyou',
+    name: 'FindYou',
+    component: () => import('../views/FindYou.vue')
+  },
+  {
+    path: '/jubaoren',
+    name: 'JuBaoRen',
+    component: () => import('../views/JuBaoRen.vue')
+  },
+  {
+    path: '/truthend',
+    name: 'TruthEnd',
+    component: () => import('../views/TruthEnd.vue')
   }
 ]
 

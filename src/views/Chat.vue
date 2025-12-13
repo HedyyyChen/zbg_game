@@ -6,6 +6,7 @@
         <div id="chatTab" :class="['tab-content', { active: activeTab === 'chatTab' }]">
           <div id="contactList" :class="['sub-view', { active: currentView === 'contactList' }]">
             <div class="header">
+              <button class="back-to-phone-btn" @click="goBackToPhone">←</button>
               <h2>聊天</h2>
             </div>
             <div class="contact-list">
@@ -108,9 +109,43 @@
                 今天打野很给力！
               </div>
               <div class="shuoshuo-stats">
-                <span>👍 <b>12</b></span>
-                <span>💬 <b>3</b></span>
-                <span>🔁 <b>0</b></span>
+                <span>👍 <b>{{ Math.floor(Math.random() * 20) + 5 }}</b></span>
+                <span>💬 <b>{{ Math.floor(Math.random() * 10) + 1 }}</b></span>
+                <span>🔁 <b>{{ Math.floor(Math.random() * 5) }}</b></span>
+              </div>
+            </div>
+            <div class="shuoshuo-item">
+              <div class="shuoshuo-header">
+                <div class="avatar">🐖</div>
+                <div class="user-info">
+                  <div class="name">猪猪侠</div>
+                  <div class="time">10/11 12:20</div>
+                </div>
+              </div>
+              <div class="shuoshuo-content">
+                外卖员又送错了……明明周围也没几户人家……
+              </div>
+              <div class="shuoshuo-stats">
+                <span>👍 <b>{{ Math.floor(Math.random() * 20) + 5 }}</b></span>
+                <span>💬 <b>{{ Math.floor(Math.random() * 10) + 1 }}</b></span>
+                <span>🔁 <b>{{ Math.floor(Math.random() * 5) }}</b></span>
+              </div>
+            </div>
+            <div class="shuoshuo-item">
+              <div class="shuoshuo-header">
+                <div class="avatar">🐖</div>
+                <div class="user-info">
+                  <div class="name">猪猪侠</div>
+                  <div class="time">09/11 15:40</div>
+                </div>
+              </div>
+              <div class="shuoshuo-content">
+                五排有无，缺3
+              </div>
+              <div class="shuoshuo-stats">
+                <span>👍 <b>{{ Math.floor(Math.random() * 20) + 5 }}</b></span>
+                <span>💬 <b>{{ Math.floor(Math.random() * 10) + 1 }}</b></span>
+                <span>🔁 <b>{{ Math.floor(Math.random() * 5) }}</b></span>
               </div>
             </div>
           </div>
@@ -182,6 +217,9 @@ export default {
     goBackToContacts() {
       this.currentView = 'contactList'
     },
+    goBackToPhone() {
+      this.$router.push('/myphone')
+    },
     showLoginForm() {
       this.loginView = 'loginForm'
       this.username = ''
@@ -201,23 +239,36 @@ export default {
       }
 
       // 验证水饺账号
-      if (user !== CORRECT_USERNAME) {
-        alert('无此用户')
+      if (user === CORRECT_USERNAME) {
+        if (!pass) {
+          alert('请输入密码')
+          return
+        }
+        if (pass === CORRECT_PASSWORD) {
+          alert('登录成功！')
+          this.$router.push('/chat2')
+        } else {
+          alert('密码错误')
+        }
         return
       }
 
-      if (!pass) {
-        alert('请输入密码')
+      // 验证电脑高手账号
+      if (user === 'diannaogaoshou') {
+        if (!pass) {
+          alert('请输入密码')
+          return
+        }
+        if (pass === '20020321') {
+          alert('登录成功！')
+          this.$router.push('/otherchat')
+        } else {
+          alert('密码错误')
+        }
         return
       }
 
-      // 直接比较密码
-      if (pass === CORRECT_PASSWORD) {
-        alert('登录成功！')
-        this.$router.push('/chat2')
-      } else {
-        alert('密码错误')
-      }
+      alert('无此用户')
     }
   }
 }
@@ -261,6 +312,23 @@ export default {
   align-items: center;
   padding: 0 15px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.back-to-phone-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background 0.2s;
+}
+
+.back-to-phone-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .header h2 {
