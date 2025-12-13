@@ -410,6 +410,7 @@ export default {
 .chat-container {
   flex: 1;
   padding: 15px;
+  padding-bottom: 140px; /* 给绝对定位的输入区留更充足空间，防止消息被遮挡 */
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -424,6 +425,11 @@ export default {
   display: flex;
   gap: 8px;
   border-top: 1px solid #ddd;
+  position: absolute; /* 固定在视图底部上方 */
+  left: 0;
+  right: 0;
+  bottom: 50px; /* 紧贴底部导航（高度 50px） */
+  z-index: 60; /* 提升输入框层级，显示在导航栏上方 */
 }
 
 .input-area textarea {
@@ -455,6 +461,7 @@ export default {
   bottom: 0;
   width: 100%;
   border-top: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 50; /* 保持低于输入框 */
 }
 
 .nav-item {

@@ -65,8 +65,9 @@ export default {
   border-top-right-radius: 4px;
 }
 
-.message.received .bubble img {
+.bubble img {
   max-width: 100%;
+  height: auto;
   border-radius: 8px;
   display: block;
 }
