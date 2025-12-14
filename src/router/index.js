@@ -38,6 +38,11 @@ const routes = [
     component: () => import('../views/SearchPlace.vue')
   },
   {
+    path: '/zhuquan',
+    name: 'ZhuQuan',
+    component: () => import('../views/ZhuQuan.vue')
+  },
+  {
     path: '/emailplace',
     name: 'EmailPlace',
     component: () => import('../views/EmailPlace.vue')

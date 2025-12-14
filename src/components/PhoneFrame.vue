@@ -41,17 +41,21 @@ export default {
   min-height: 100vh;
   width: 100%;
   padding: 20px;
+  box-sizing: border-box; /* 确保 padding 不影响 width */
 }
 
 .phone-container {
   width: 360px;
   height: 720px;
+  box-sizing: border-box; /* 👈 关键：包含 border 在 height 内 */
   background: white;
   border-radius: 40px;
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
   border: 8px solid black;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .status-bar {
@@ -86,8 +90,7 @@ export default {
 }
 
 .phone-screen {
-  width: 100%;
-  height: calc(100% - 40px);
+  flex: 1; /* 👈 替代 height: calc(100% - 40px)，更可靠 */
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   display: flex;
@@ -96,14 +99,14 @@ export default {
 }
 </style>
 
-<style>
-/* 非 scoped 样式，确保底部导航栏能正确定位 */
-</style>
-
+<!-- 全局样式：确保 body 背景填满整个视口 -->
 <style>
 body {
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
+  padding: 0;
+  color: #333;
+  min-height: 100vh; 
 }
 </style>
-

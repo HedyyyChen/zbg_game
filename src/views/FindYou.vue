@@ -99,10 +99,10 @@ export default {
   color: #ff0000;
   margin-bottom: 50px;
   text-shadow: 
-    0 0 10px #ff0000,
-    0 0 20px #ff0000,
-    0 0 30px #ff0000,
-    0 0 40px #ff0000;
+    0 0 0px #ff0000,
+    0 0 0px #ff0000,
+    0 0 5px #ff0000,
+    0 0 50px #ff0000;
   opacity: 0;
   transform: translateY(20px);
   transition: all 1s ease-out;

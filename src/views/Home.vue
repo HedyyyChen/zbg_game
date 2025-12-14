@@ -34,13 +34,10 @@ export default {
 
 <style scoped>
 .container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
+  /* ✅ 改用 margin: auto 或 flex（由父级控制居中） */
   max-width: 600px;
   width: 90%;
+  margin: 4rem auto; /* 上下留空，左右居中 */
   text-align: center;
   padding: 2.8rem 2rem;
   background: rgba(15, 10, 30, 0.75);
@@ -50,9 +47,6 @@ export default {
               inset 0 0 0 1px rgba(100, 80, 180, 0.3);
   border: 1px solid rgba(100, 80, 200, 0.2);
   animation: fadeIn 0.8s ease-out;
-
-  /* ⚠️ 关键：不要设置 min-height，让内容自然撑开 */
-  /* 容器高度由内容决定，超出部分由 body 滚动 */
 }
 
 /* 动画保持不变 */
@@ -170,18 +164,16 @@ h1 {
 body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100vh; /* 固定为视口高度 */
   font-family: 'Noto Sans SC', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: white;
   line-height: 1.6;
   background: linear-gradient(135deg, #2c1e5d, #4b2a7c, #6a3a9c);
-  overflow-y: auto; /* ✅ 允许滚动 */
-  position: relative;
+  min-height: 100vh;
+  /* 允许滚动（当内容多时） */
+  overflow-y: auto;
 }
 
 #app {
   width: 100%;
-  height: 100%;
 }
 </style>

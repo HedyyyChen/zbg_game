@@ -74,7 +74,14 @@ export default {
         this.searchError = '请输入搜索内容'
         return
       }
-      
+
+      // 包含关键词“猪圈”则跳转到密码对照页
+      if (query.includes('猪圈')) {
+        this.searchError = ''
+        this.$router.push('/zhuquan')
+        return
+      }
+
       if (searchRoutes[query]) {
         this.searchError = ''
         this.$router.push(searchRoutes[query])
@@ -125,12 +132,12 @@ export default {
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  margin-top: 60px;
+  margin-top: 20px;
 }
 
 .search-logo {
   font-size: 4rem;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .search-input {
