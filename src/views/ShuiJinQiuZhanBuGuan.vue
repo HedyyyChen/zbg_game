@@ -102,6 +102,7 @@ export default {
   color: #e0e0f8; /* 浅色文本 */
   overflow-y: auto;
   font-family: 'Georgia', serif; /* 优雅的字体 */
+  min-height: 100%; /* 避免使用 100vh，配合 PhoneFrame 内部高度 */
 }
 
 /* 头部 */
