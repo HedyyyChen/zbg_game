@@ -334,7 +334,9 @@ export default {
 .main-content {
   flex: 1;
   overflow: hidden;
+  overflow-x: hidden;
   position: relative;
+  width: 100%;
 }
 
 /* Tab 和子视图 */

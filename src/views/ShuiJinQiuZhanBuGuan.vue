@@ -29,7 +29,7 @@
               <span class="info-icon">💎</span>
               <h4>2. 如何选择水晶球的材质？</h4>
             </div>
-            <p>水晶球的材质多样，透明色、白色、黑色和紫色是最受欢迎的选择。其实任何材质都能很好地工作，建议选择能引起**个人共鸣**的颜色，当然你可以有若干个水晶球以应对不同的疑问。</p>
+            <p>水晶球的材质多样，透明色、白色、黑色和紫色是最受欢迎的选择。其实任何材质都能很好地工作，建议选择能引起个人共鸣的颜色，当然你可以有若干个水晶球以应对不同的疑问。</p>
           </div>
           
           <div class="info-item">
@@ -101,6 +101,9 @@ export default {
   background: #1c1c3f; /* 深蓝色背景，营造神秘感 */
   color: #e0e0f8; /* 浅色文本 */
   overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
   font-family: 'Georgia', serif; /* 优雅的字体 */
   min-height: 100%; /* 避免使用 100vh，配合 PhoneFrame 内部高度 */
 }

@@ -116,6 +116,16 @@ const routes = [
     path: '/truthend',
     name: 'TruthEnd',
     component: () => import('../views/TruthEnd.vue')
+  },
+  {
+    path: '/onlinedivination',
+    name: 'OnlineDivination',
+    component: () => import('../views/OnlineDivination.vue')
+  },
+  {
+    path: '/shuijingqiuapp',
+    name: 'ShuiJingQiuApp',
+    component: () => import('../views/ShuiJingQiuApp.vue')
   }
 ]
 

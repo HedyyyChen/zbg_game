@@ -215,6 +215,13 @@ const chatLogs = {
     { type: 'sent', content: '这不简单，毛毛虫啊。' },
     { type: 'received', content: '错！是台球桌！' },
     { type: 'sent', content: '我&%~#' },
+    { type: 'sent', content: '不行，你这有套路的，再来一道，我保证答对。'},
+    { type: 'received', content: '好，什么东西甜甜的，放在嘴里会跳？' },
+    { type: 'sent', content: '肯定不会是跳跳糖……' },
+    { type: 'sent', content: '我知道了，是沾了糖的癞蛤蟆！'},
+    { type: 'received', content: '是不是去搜答案了？' },
+    { type: 'received', content: '但很可惜还是没对。答案是沾了糖的跳高运动员。' },
+    { type: 'sent', content: '不是哥们……' },
     { type: 'received', content: '愿赌服输，把你oo账号密码改成生日，这俩个月都是哥几个公共账号了。' },
     { type: 'sent', content: '好好好，你这么玩是吧。' }
   ]
@@ -298,7 +305,10 @@ export default {
 .main-content {
   flex: 1;
   overflow: hidden;
+  overflow-x: hidden;
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .tab-content,

@@ -46,6 +46,15 @@
             <div class="icon-circle">✉️</div>
             <div class="app-name">电子邮箱</div>
           </div>
+          <!-- 动态渲染已下载的应用 -->
+          <div 
+            v-if="globalState.isDivinationAppDownloaded()"
+            class="app-item divination-app" 
+            @click="openDivinationApp"
+          >
+            <div class="icon-circle">🔮</div>
+            <div class="app-name">水晶球占卜</div>
+          </div>
         </div>
       </div>
     </div>
@@ -57,6 +66,8 @@
 </template>
 
 <script>
+import { globalState } from '../utils/globalState'
+
 export default {
   name: 'MyPhone',
   data() {
@@ -64,7 +75,8 @@ export default {
       currentTime: '9:41',
       showPasswordDialog: false,
       emailPassword: '',
-      passwordError: ''
+      passwordError: '',
+      globalState: globalState
     }
   },
   mounted() {
@@ -98,6 +110,9 @@ export default {
           this.$refs.passwordInput.focus()
         }
       })
+    },
+    openDivinationApp() {
+      this.$router.push('/shuijingqiuapp')
     },
     checkEmailPassword() {
       if (this.emailPassword === 'sleepman') {
@@ -193,22 +208,26 @@ export default {
 }
 
 .app-grid {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  display: grid;
+  /* 关键：定义三列，每列宽度相同，且图标在列内居中 */
+  grid-template-columns: repeat(3, 1fr); 
+  /* 保持原本的上下间距 */
+  row-gap: 20px; 
   width: 100%;
-  max-width: 320px;
-  gap: 20px;
+  max-width: 360px;
   margin-top: 10px;
+  /* 左右留白，模拟原本 space-around 的呼吸感 */
+  padding: 0 10px; 
 }
 
 .app-item {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; /* 确保图标和文字在每一格内部居中 */
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
+  /* 移除原本可能干扰的 margin 或 width */
 }
 
 .app-item:hover .icon-circle {
@@ -243,6 +262,12 @@ export default {
 .email-app .icon-circle {
   background: #ea4335;
   color: white;
+}
+
+.divination-app .icon-circle {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .app-name {
@@ -382,6 +407,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   color: #333;
+  overflow-x: hidden;
 }
 </style>
 

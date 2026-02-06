@@ -41,6 +41,7 @@ export default {
   min-height: 100vh;
   width: 100%;
   padding: 20px;
+  overflow-x: hidden;
 }
 
 .phone-container {

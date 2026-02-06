@@ -23,7 +23,7 @@
           <div class="post-author">发布者：{{ selectedPost.author }}</div>
         </div>
         <div class="post-content">
-          <p>{{ selectedPost.content }}</p>
+          {{ formatContent(selectedPost.content) }}
         </div>
         <div class="post-replies">
           <h3>回帖：</h3>
@@ -47,7 +47,7 @@ const posts = [
   {
     title: '怎么自己进行水晶球占卜？',
     author: '一个水晶球爱好者',
-    content: '很多新手对于自己进行水晶球占卜都一头雾水，特别是在获得启示之后，对于其中的图案、画面并不理解。这是非常正常的，大家不用焦虑，解读是需要一定的经验和积累的，孰能生巧，慢慢的就会得心应手。关于水晶球占卜的步骤，一定要严格按照占卜师所说明的顺序，这样获得正确启示的概率更高。',
+    content: '很多新手对于自己进行水晶球占卜都一头雾水，特别是在获得启示之后，对于其中的图案、画面并不理解。这是非常正常的，大家不用焦虑，解读是需要一定的经验和积累的，孰能生巧，慢慢的就会得心应手。\n\n  关于水晶球占卜的步骤，一定要严格按照占卜师所说明的顺序，这样获得正确启示的概率更高。',
     replies: [
       { author: '小鱼', content: '我之前也看不懂，不过练习多了就有经验了。' },
       { author: '花花小姐', content: '第一次自己占卜啥也没看到，这是正常的吗？' },
@@ -58,12 +58,12 @@ const posts = [
   {
     title: '关于"它"的传说',
     author: '球球',
-    content: '在进行水晶球占卜的时候，我们其实通过水晶球进入了另一个维度的空间，在那个维度，我们可以看到关于未来的某种启示。获得启示能帮助我们改运，但频繁地使用水晶球会损耗自身的能量，使我们处于不稳定状态，容易被不好的东西近身。这就是我这篇帖子要说的东西——"它"。只有灵感足且能量低的人会被它近身，起初，你会感觉有人在窥视，后来，它会逐渐变幻出实体，直到和常人无异，甚至！会变成你认识的人，在你毫无防备的时候，被它拉入另一个维度之中……',
+    content: '在进行水晶球占卜的时候，我们其实通过水晶球进入了另一个维度的空间，在那个维度，我们可以看到关于未来的某种启示。获得启示能帮助我们改运，但频繁地使用水晶球会损耗自身的能量，使我们处于不稳定状态，容易被不好的东西近身。\n\n  这就是我这篇帖子要说的东西——"它"。只有灵感足且能量低的人会被它近身，起初，你会感觉有人在窥视，后来，它会逐渐变幻出实体，直到和常人无异，甚至！会变成你认识的人，在你毫无防备的时候，被它拉入另一个维度之中……',
     replies: [
       { author: '路仁', content: '楼主在编故事吗？' },
       { author: '流眼泪的小男孩', content: '前两天才买的水晶球，这就要被劝退了……' },
       { author: '彼岸之草', content: '听着有点真啊，好可怕……' },
-      { author: '会飞的雨', content: '不是着你们都信？一听就是假的。' },
+      { author: '会飞的雨', content: '不是这你们都信？一听就是假的。' },
       { author: '蛋挞大王', content: '如果遇到了怎么解决？' },
       { author: '球球', content: '回复【蛋挞大王】：帖子不方便，在"树洞悄悄话"聊，我的账号是qiuqiu123' }
     ]
@@ -78,7 +78,18 @@ const posts = [
       { author: '恬恬', content: '油画质感的雪山，其实还挺惊讶看得那么清晰的。' },
       { author: '酒醉的蝴蝶', content: '全黑，啥也没有。' }
     ]
-  }
+  },
+  {
+    title: '线上水晶球占卜',
+    author: '无所谓我会出手',
+    content: '我是一名个人开发者，对于水晶球占卜很感兴趣，于是做了一个线上水晶球占卜的app，浏览器搜索"线上水晶球占卜"就可以进入网页下载了。\n\n  不想花钱购买水晶球的朋友可以试试，纯属娱乐，但有时候也能看到一些有趣的东西，毕竟玄学的东西，谁又能说清呢？',
+    replies: [
+      { author: '会飞的雨', content: '科技发达了，竟然连赛博占卜都有了。' },
+      { author: '花花小姐', content: '挺有意思的，支持一下。' },
+      { author: '巴巴博弈', content: '占卜了几次，有些还真对上了，稀奇。' },
+      { author: '性感母蟑螂', content: '玄学不就是唯心主义嘛，其实在哪里占卜都一样。' }
+    ]
+  },
 ]
 
 export default {
@@ -110,6 +121,15 @@ export default {
       const minutes = String(now.getMinutes()).padStart(2, '0')
       this.currentTime = `${hours}:${minutes}`
     },
+    formatContent(content) {
+      // 分割内容，为每行添加缩进
+      return content.split('\n').map(line => {
+        // 如果是空行，保持不变
+        if (!line) return line
+        // 其他行都添加两个空格缩进
+        return '  ' + line
+      }).join('\n')
+    },
     openPost(index) {
       this.selectedPost = this.posts[index]
     },
@@ -134,6 +154,9 @@ export default {
   background: linear-gradient(135deg, #f0f4ff 0%, #e6e9f0 100%);
   color: #333;
   overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
   font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
 }
 
@@ -283,6 +306,7 @@ export default {
   line-height: 1.8;
   color: #555;
   font-size: 1.02rem;
+  white-space: pre-line;
 }
 
 .post-replies {

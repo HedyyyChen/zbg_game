@@ -31,7 +31,8 @@ const searchRoutes = {
   '陈琳琳': '/chenlinlin',
   '水晶球新手的交流社区': '/shuijinqiunewguy',
   '树洞悄悄话': '/shudongchat',
-  'ip地址切换器': '/iptransform'
+  'ip地址切换器': '/iptransform',
+  '线上水晶球占卜': '/onlinedivination'
 }
 
 export default {
@@ -104,6 +105,9 @@ export default {
   padding: 20px;
   background: white;
   color: #333;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .search-header {

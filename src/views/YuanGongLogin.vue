@@ -3,6 +3,7 @@
     <div class="login-container">
       <div v-if="!isLoggedIn" class="login-form-section">
         <div class="system-header">
+          <button class="header-back" @click="goBack">← 返回</button>
           <div class="system-logo">🔮</div>
           <div class="system-title">水晶球占卜馆 · 员工内网系统</div>
           <div class="system-version">v2.3.1</div>
@@ -161,6 +162,9 @@ export default {
   color: #333;
   font-family: 'Microsoft YaHei', sans-serif;
   overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
   min-height: 0;
 }
 
@@ -189,6 +193,21 @@ export default {
   padding: 2px 8px;
   border-radius: 4px;
   font-size: 0.8rem;
+}
+
+.header-back {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 0.95rem;
+  margin-right: 8px;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.header-back:hover {
+  background: rgba(255,255,255,0.06);
 }
 
 /* 登录表单区域 */

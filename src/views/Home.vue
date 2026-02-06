@@ -22,8 +22,15 @@
 </template>
 
 <script>
+import { globalState } from '../utils/globalState'
+
 export default {
   name: 'HomeView',
+  mounted() {
+    // 游戏初始化时重置下载状态
+    globalState.divinationAppDownloaded = false
+    localStorage.removeItem('divinationAppDownloaded')
+  },
   methods: {
     enterPhone() {
       this.$router.push('/myphone') // 注意：根据你路由实际路径调整，建议用 /phone
@@ -171,6 +178,7 @@ body {
   min-height: 100vh;
   /* 允许滚动（当内容多时） */
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 #app {

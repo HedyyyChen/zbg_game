@@ -306,6 +306,9 @@ export default {
   flex-direction: column;
   background: white;
   color: #333;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .email-header {
